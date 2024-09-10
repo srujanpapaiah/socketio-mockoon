@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mockoon
+  labels:
+    app: mockoon
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mockoon
+  template:
+    metadata:
+      labels:
+        app: mockoon
+    spec:
+      containers:
+        - name: mockoon
+          image: public.ecr.aws/w5e8h1i2/socketio/mockoon-demo:latest
+          ports:
+            - containerPort: 3001

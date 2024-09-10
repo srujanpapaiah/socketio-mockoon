@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: socketio-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: socketio-server
+  template:
+    metadata:
+      labels:
+        app: socketio-server
+    spec:
+      containers:
+      - name: socketio-server
+        image: public.ecr.aws/w5e8h1i2/socketio/mockoon-demo:socketio-server
+        ports:
+        - containerPort: 5000
